@@ -1,8 +1,6 @@
 package br.com.marco.banking.entities;
 
-import javax.swing.*;
 import java.util.Random;
-import java.util.stream.IntStream;
 
 public class Conta {
     private String cpf;
@@ -10,7 +8,9 @@ public class Conta {
     private String numConta;
     private String numAgencia;
 
-    public Conta(String cpf, String numAgencia) {
+    private TipoConta tipoConta;
+
+     Conta(String cpf, String numAgencia) {
         this.cpf = cpf;
         this.numAgencia = numAgencia;
         saldo = 0;
@@ -40,6 +40,10 @@ public class Conta {
         return cpf;
     }
 
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
     public void sacar(double valor) {
         if (valor <= saldo) {
             saldo = saldo - valor;
@@ -54,6 +58,31 @@ public class Conta {
         } else {
             throw new RuntimeException("Valor do deposito invalido");
         }
+    }
+
+    public void transferencia(double valor,Conta contaOrigem, Conta contaDestino){
+         double saldo;
+         String origemAgenciaConta = contaOrigem.getNumAgencia() + contaOrigem.getNumConta();
+         String destinoAgenciaConta = contaDestino.getNumAgencia() + contaDestino.getNumConta();
+         if(contaDestino.getTipo() != TipoConta.SALARIO) {
+             if (origemAgenciaConta != destinoAgenciaConta) {
+                 if (contaOrigem.getSaldo() >= valor) {
+                     saldo = contaOrigem.getSaldo() - valor;
+                     contaOrigem.setSaldo(saldo);
+                     contaDestino.setSaldo(contaDestino.getSaldo() + valor);
+                 } else {
+                     throw new RuntimeException("Valor do saldo insuficiente");
+                 }
+             }
+         }
+    }
+
+    public TipoConta getTipo() {
+        return tipoConta;
+    }
+
+    public void setTipo(TipoConta tipoConta) {
+        this.tipoConta = tipoConta;
     }
 
 }

@@ -53,13 +53,26 @@ class ContaTest {
 
     @Test
     @DisplayName("""
-            Dado que tenho uma conta com saldo 1000.0
+            Dado que tenho uma conta com saldo 0.0
             Quando depositar 500.0
-            Entao o saldo devera ser de 1500.0
+            Entao o saldo devera ser de 500.0
             """)
-    void depositar() {
+    void testDepositar() {
         Conta conta = new Conta("222222222", "0002");
         conta.depositar(500.0);
-        conta.getSaldo();
+        assertEquals(500.0,conta.getSaldo());
+    }
+
+
+
+    @Test
+    @DisplayName("""
+            Dado que tenho uma conta com saldo 0.0
+            Quando depositar -500.0
+            Entao devera lancar uma excecao de valor invalido
+            """)
+    void testDepositarValorInvalido() {
+        Conta conta = new Conta("222222222", "0002");
+        assertThrows(RuntimeException.class, () ->conta.depositar(-500));
     }
 }
