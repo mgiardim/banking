@@ -1,21 +1,22 @@
 package br.com.marco.banking.entities;
 
-public class ContaCorrente {
+import br.com.marco.banking.entities.base.ContaPrimitiva;
+import br.com.marco.banking.entities.base.Recebivel;
+import br.com.marco.banking.entities.base.Transferivel;
+import br.com.marco.banking.exceptions.TransferenciaInvalidaException;
 
+public class ContaCorrente extends ContaPrimitiva implements Transferivel, Recebivel {
 
-    private Conta conta;
-
-    public ContaCorrente(String cpf, String numAgencia){
-        Conta conta = new Conta(cpf, numAgencia);
-        this.conta = conta;
-        conta.setTipo(TipoConta.CORRENTE);
+    public ContaCorrente(String cpf, String numAgencia) {
+        super(cpf, numAgencia);
     }
 
-
-    public void setConta(String cpf, String numAgencia) {
-
-    }
-    public Conta getConta() {
-        return conta;
+    @Override
+    public void transferir(double valor, Recebivel contaDestino) {
+        if(this.mesmaConta(contaDestino)){
+            throw new TransferenciaInvalidaException();
+        }
+        this.sacar(valor);
+        contaDestino.depositar(valor);
     }
 }

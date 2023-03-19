@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed1f21e6-e372-43d7-9960-9e926823cb57" name="Changes" comment="primeiro commit">
+    <list default="true" id="ed1f21e6-e372-43d7-9960-9e926823cb57" name="Changes" comment="Transferencia com composition">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/marco/banking/entities/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/marco/banking/entities/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/marco/banking/entities/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/marco/banking/entities/base/ContaPrimitiva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/marco/banking/entities/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/marco/banking/entities/ContaCorrente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/marco/banking/entities/ContaPoupanca.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/marco/banking/entities/ContaSalario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/marco/banking/entities/TipoConta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/marco/banking/entities/ContaCorrenteTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/marco/banking/entities/ContaCorrenteTeste.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/br/com/marco/banking/entities/ContaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/marco/banking/entities/ContaTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +24,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -65,20 +72,12 @@
       <recent name="br.com.marco.banking.entities" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ContaCorrenteTeste.testTransferencia">
-    <configuration name="All in Banking" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Banking" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.ContaCorrenteTeste.testTransferenciaValida">
     <configuration name="ContaCorrenteTeste.testTransferencia" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Banking" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.marco.banking.entities.*" />
+          <option name="PATTERN" value="br.com.marco.banking.entities.base.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -90,11 +89,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContaTest.testDepositar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ContaCorrenteTeste.testTransferenciaValida" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Banking" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="br.com.marco.banking.entities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.marco.banking.entities" />
+      <option name="MAIN_CLASS_NAME" value="br.com.marco.banking.entities.ContaCorrenteTeste" />
+      <option name="METHOD_NAME" value="testTransferenciaValida" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContaTest.testDepositar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Banking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.marco.banking.entities.base.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -110,7 +125,7 @@
       <module name="Banking" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.marco.banking.entities.*" />
+          <option name="PATTERN" value="br.com.marco.banking.entities.base.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -126,7 +141,7 @@
       <module name="Banking" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.marco.banking.entities.*" />
+          <option name="PATTERN" value="br.com.marco.banking.entities.base.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -140,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ContaCorrenteTeste.testTransferenciaValida" />
         <item itemvalue="JUnit.ContaCorrenteTeste.testTransferencia" />
         <item itemvalue="JUnit.ContaTest.testDepositarValorInvalido" />
         <item itemvalue="JUnit.ContaTest.testSacarInvalido" />
         <item itemvalue="JUnit.ContaTest.testDepositar" />
-        <item itemvalue="JUnit.All in Banking" />
       </list>
     </recent_temporary>
   </component>
@@ -171,12 +186,27 @@
       <option name="project" value="LOCAL" />
       <updated>1678544477684</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Transferencia com composition">
+      <created>1679171606057</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679171606057</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Transferencia com composition">
+      <created>1679171628747</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679171628747</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="primeiro commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="primeiro commit" />
+    <MESSAGE value="Transferencia com composition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Transferencia com composition" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Banking$All_in_Banking.ic" NAME="All in Banking Coverage Results" MODIFIED="1678497774493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
