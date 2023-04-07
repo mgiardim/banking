@@ -31,13 +31,13 @@ public abstract class ContaPrimitiva implements Conta {
         return cpf;
     }
 
-    public void sacar(double valor) {
+/*    public void sacar(double valor) {
         if (valor <= saldo) {
             saldo = saldo - valor;
         } else {
             throw new RuntimeException("Saldo insuficiente");
         }
-    }
+    }*/
 
     public void depositar(double valor) {
         if (valor > 0) {
@@ -56,5 +56,10 @@ public abstract class ContaPrimitiva implements Conta {
     private static int getRandomNumberInRange(int min, int max) {
         Random r = new Random();
         return r.ints(min, (max + 1)).findFirst().getAsInt();
+    }
+
+    public double setSaldo(double valor) {
+        this.saldo = valor;
+        return saldo;
     }
 }

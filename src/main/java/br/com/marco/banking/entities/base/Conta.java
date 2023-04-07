@@ -9,7 +9,7 @@ interface Conta {
 
     String getNumAgencia();
 
-    void sacar(double valor);
+/*    void sacar(double valor);*/
 
     void depositar(double valor);
 
