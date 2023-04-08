@@ -1,5 +1,8 @@
 package br.com.marco.banking.entities.base;
 
+import br.com.marco.banking.exceptions.DepositoInvalidoException;
+
+import java.time.LocalDate;
 import java.util.Random;
 
 public abstract class ContaPrimitiva implements Conta {
@@ -7,12 +10,16 @@ public abstract class ContaPrimitiva implements Conta {
     private double saldo;
     private String numConta;
     private String numAgencia;
+    private LocalDate dataCriacao;
+    private LocalDate dataAtualizacao;
 
     public ContaPrimitiva(String cpf, String numAgencia) {
         this.cpf = cpf;
         this.numAgencia = numAgencia;
         saldo = 0;
         numConta = String.valueOf(getRandomNumberInRange(1000, 9999));
+        dataCriacao = LocalDate.now();
+        dataAtualizacao = LocalDate.now();
     }
 
     public double getSaldo() {
@@ -31,22 +38,13 @@ public abstract class ContaPrimitiva implements Conta {
         return cpf;
     }
 
-/*    public void sacar(double valor) {
-        if (valor <= saldo) {
-            saldo = saldo - valor;
-        } else {
-            throw new RuntimeException("Saldo insuficiente");
-        }
-    }*/
-
     public void depositar(double valor) {
         if (valor > 0) {
             saldo = saldo + valor;
         } else {
-            throw new RuntimeException("Valor do deposito invalido");
+            throw new DepositoInvalidoException();
         }
     }
-
     public boolean mesmaConta(Conta conta) {
         String origemAgenciaConta = this.getNumAgencia() + this.getNumConta();
         String destinoAgenciaConta = conta.getNumAgencia() + conta.getNumConta();
@@ -62,4 +60,12 @@ public abstract class ContaPrimitiva implements Conta {
         this.saldo = valor;
         return saldo;
     }
+
+    public LocalDate getDataCriacao(){return dataCriacao;}
+
+    public LocalDate getDataAtualizacao(){return dataAtualizacao;}
+
+    public LocalDate setDataAtualizacao(LocalDate dataAtualizada){
+        this.dataAtualizacao = dataAtualizada;
+        return dataAtualizacao;}
 }

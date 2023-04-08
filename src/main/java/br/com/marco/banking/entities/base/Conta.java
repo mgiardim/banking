@@ -9,8 +9,6 @@ interface Conta {
 
     String getNumAgencia();
 
-/*    void sacar(double valor);*/
-
     void depositar(double valor);
 
     boolean mesmaConta(Conta conta);
